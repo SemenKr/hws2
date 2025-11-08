@@ -1,18 +1,43 @@
 .sendForm {
-
+    padding-top: 53px;
+    display: flex;
+    gap: 44px;
+    align-items: flex-end;
 }
 
 .textarea {
-
+    width: 100%;
+    min-height: 40px; /* минимальная высота */
+    max-height: 120px; /* максимальная высота чтобы не уходил за экран */
+    box-shadow: 0px 1px 2px 0px #1D21261A;
+    border-radius: 20px;
+    border: none;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: none; /* убрал возможность ручного изменения размера */
+    overflow-y: auto; /* скролл только если нужно */
 }
 
 .button {
-
+    background: #0066CC;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 24px;
+    min-width: 120px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    flex-shrink: 0; /* чтобы кнопка не сжималась */
 }
 
 .button:hover {
 
 }
+
 .button:active {
 
 }
