@@ -4,19 +4,19 @@
 
 .input {
     width: 100%;
-    padding: 8px 12px;
+    padding: 4px 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 20px;
-    border: 1px solid #D9D9D9;
-    border-radius: 3px;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
     box-sizing: border-box;
     transition: border-color 0.15s ease-in-out;
 }
 
 .inputWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .superInput {

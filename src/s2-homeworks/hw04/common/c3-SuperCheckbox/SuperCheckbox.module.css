@@ -3,6 +3,7 @@
     align-items: center;
     cursor: pointer;
     user-select: none;
+    color: #0066CC;
 }
 
 /*input[type="checkbox"] - no*/
@@ -15,12 +16,12 @@
     width: 18px;
     height: 18px;
     margin-right: 8px;
-    accent-color: #0066CC;
+    color: #0066CC;
 
     background-repeat: no-repeat;
     background-position: center center;
 
-    /* background-size: 90% 90%; */
+     background-size: 90% 90%;
     vertical-align: middle;
     border-radius: 3px;
     border: 2px solid #06c;
@@ -31,7 +32,6 @@
     appearance: none;
 
     background-image: url('checked.svg');
-    /*background: #99ff99;*/
 }
 
 .checkbox:focus {
@@ -42,5 +42,5 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 20px;
-    color: #000000;
+    color: #0066CC;
 }
