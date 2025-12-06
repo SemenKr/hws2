@@ -1,25 +1,82 @@
+/* ====== SIDEBAR ====== */
 .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 63px;
+    padding-left: 50px;
+    min-width: 320px;
+    max-width: 400px;
+    width: 80vw;
+    background-color: #fff;
+    height: 100vh;
+    box-shadow: 0 10px 40px rgba(29, 33, 38, 0.13);
+    z-index: 1000;
+
+    /* анимация */
+    transform: translateX(-100%); /* скрыто */
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+
+    display: block; /* ВАЖНО — анимация не работает с display:none */
 }
 
+/* когда open */
 .sidebar.open {
+    transform: translateX(0); /* выезжает */
+    opacity: 1;
 }
 
+/* ====== BACKDROP ====== */
 .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 900;
+
+    opacity: 0;
+    animation: fadeIn 0.35s forwards ease;
 }
 
-.nav {
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
+/* ====== NAV LINKS ====== */
 .nav a {
+    font-weight: 600;
+    font-size: 22px;
+    color: #000;
+    text-decoration: none;
+    display: block;
+    padding: 14px 24px;
+    transition: color 0.3s ease;
 }
 
 .nav a:hover {
+    color: #58ACFF;
 }
 
 .nav a.active {
+    text-decoration: underline;
+    color: #0059B2;
 }
+
+/* ====== CLOSE BUTTON ====== */
 .close {
+    background: none;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 24px;
 }
 
 .close img {
+    width: 28px;
+    height: 28px;
 }
