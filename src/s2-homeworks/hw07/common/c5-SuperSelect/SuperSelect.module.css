@@ -1,9 +1,29 @@
 .select {
+    width: 200px;
+    padding: 6px 10px;
+    font-size: 14px;
+
+    border: 1px solid #c2c2c2;
+    border-radius: 4px;
+    background-color: #fff;
+
+    appearance: none;          /* убирает стандартную стрелку */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Cg clip-path="url(%23clip0_4_147)"%3E%3Cpath d="M12 15.4999C11.8684 15.5007 11.7379 15.4755 11.6161 15.4257C11.4943 15.3759 11.3834 15.3026 11.29 15.2099L7.29 11.2099C7.19676 11.1167 7.1228 11.006 7.07234 10.8842C7.02188 10.7624 6.99591 10.6318 6.99591 10.4999C6.99591 10.3681 7.02188 10.2375 7.07234 10.1157C7.1228 9.99387 7.19676 9.88318 7.29 9.78994C7.38324 9.6967 7.49393 9.62274 7.61575 9.57228C7.73758 9.52182 7.86814 9.49585 8 9.49585C8.13186 9.49585 8.26243 9.52182 8.38425 9.57228C8.50607 9.62274 8.61676 9.6967 8.71 9.78994L12 13.0999L15.3 9.91994C15.392 9.81765 15.5041 9.73544 15.6293 9.67846C15.7545 9.62147 15.8902 9.59093 16.0277 9.58875C16.1653 9.58657 16.3018 9.6128 16.4287 9.66579C16.5557 9.71878 16.6703 9.7974 16.7655 9.89672C16.8607 9.99605 16.9344 10.1139 16.9819 10.243C17.0295 10.3721 17.0499 10.5096 17.0418 10.647C17.0338 10.7843 16.9975 10.9185 16.9353 11.0412C16.873 11.1639 16.7861 11.2724 16.68 11.3599L12.68 15.2199C12.4971 15.3963 12.254 15.4964 12 15.4999Z" fill="black"/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id="clip0_4_147"%3E%3Crect width="24" height="24" fill="white"/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
 }
 
 .select:focus {
+    outline: none;
+    border-color: #1976d2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23000' d='M16 14.5a1 1 0 0 1-.71-.29L12 10.9l-3.3 3.18a1 1 0 1 1-1.41-1.42l4-3.86a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.42 1 1 0 0 1-.69.28'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
 }
 
 
 .option:hover {
+    border-color: #888;
 }
