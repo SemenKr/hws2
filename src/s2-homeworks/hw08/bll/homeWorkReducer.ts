@@ -4,15 +4,25 @@ type ActionType =
     | { type: 'sort'; payload: 'up' | 'down' }
     | { type: 'check'; payload: number }
 
-export const homeWorkReducer = (state: any, action: any): any => { // need to fix any
+export const homeWorkReducer = (state: UserType[], action: ActionType): UserType[] => {
     switch (action.type) {
-        case 'sort': { // by name
+        case 'sort': {
+            // Создаем копию массива, чтобы не мутировать исходный state
+            const sortedState = [...state]
 
-            return state // need to fix
+            if (action.payload === 'up') {
+                // Сортировка по возрастанию возраста
+                return sortedState.sort((a, b) => a.age - b.age)
+            } else if (action.payload === 'down') {
+                // Сортировка по убыванию возраста
+                return sortedState.sort((a, b) => b.age - a.age)
+            }
+
+            return sortedState
         }
         case 'check': {
-
-            return state // need to fix
+            // Фильтрация людей старше 18 лет (age > 18)
+            return state.filter(user => user.age > action.payload)
         }
         default:
             return state

@@ -1,19 +1,33 @@
 .item {
+    border-bottom: 1px solid #E5E5E5;
+    border-collapse: collapse;
+    padding: 3px 0;
 }
-
+.item:hover {
+    background: #E5E5E5;
+}
 .item:last-of-type {
+    border-bottom: 1px solid transparent;
 }
 
 .users {
+    width: 100%;
 }
 
 .buttonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 18px;
 }
 
 .container {
+    max-width: 606px;
 }
 
 .thead {
+    tr {
+    }
 }
 
 .nameCol {
