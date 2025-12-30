@@ -12,6 +12,7 @@
 
 .users {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .buttonsContainer {
@@ -26,12 +27,45 @@
 }
 
 .thead {
-    tr {
-    }
+    background-color: #E5E5E5;
+    font-weight: bold;
+    height: 36px;
 }
-
+.thead tr {
+    height: 36px;
+}
 .nameCol {
+    width: 50%;
+    padding-left: 17px;
 }
 
 .ageCol {
+    width: 50%;
+    padding-left: 17px;
+    font-weight: bold;
+    span {
+        font-weight: bold;
+    }
+}
+
+.item {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.item:last-of-type {
+    border-bottom: none; /* Убираем границу у последнего ряда */
+}
+
+.item:hover {
+    background-color: #E5E5E5;
+    cursor: pointer;
+}
+
+.item td {
+    padding: 11px 17px;
+    transition: background-color 0.2s ease; /* Плавный переход цвета */
+}
+
+.item:hover td {
+    background-color: #E5E5E5;
 }
