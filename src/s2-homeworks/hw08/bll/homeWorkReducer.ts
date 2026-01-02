@@ -11,11 +11,14 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
             const sortedState = [...state]
 
             if (action.payload === 'up') {
-                // Сортировка по возрастанию возраста
-                return sortedState.sort((a, b) => a.age - b.age)
+                // сортировка по имени A → Z
+                return sortedState.sort((a, b) =>
+                    a.name.localeCompare(b.name)
+                )
             } else if (action.payload === 'down') {
-                // Сортировка по убыванию возраста
-                return sortedState.sort((a, b) => b.age - a.age)
+                return sortedState.sort((a, b) =>
+                    b.name.localeCompare(a.name)
+                )
             }
 
             return sortedState
