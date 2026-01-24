@@ -2,7 +2,11 @@
 }
 
 .wrapper {
+    position: relative;
 }
 
 .number {
+    position: absolute;
+    top: 17px;
+
 }
