@@ -1,0 +1,25 @@
+.slider {
+    height: 6px;
+    background: #e5e5e5;
+    border-radius: 3px;
+    width: 147px;
+}
+
+.slider :global(.noUi-connect) {
+    background: #00cc22;
+}
+
+.slider :global(.noUi-handle) {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #00cc22;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.slider :global(.noUi-handle::before),
+.slider :global(.noUi-handle::after) {
+    display: none;
+}
