@@ -45,13 +45,11 @@ function HW11() {
                         <span id={'hw11-value-1'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
-                            // сделать так чтоб value1/2 изменялось // пишет студент
                             value={[value1, value2]}
                             onChange={change}
-                            min={0}           // минимальное значение
-                            max={100}         // максимальное значение
-                            step={1}          // шаг изменения
-                            disableSwap
+                            min={0}
+                            max={100}
+                            step={1}
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
                     </div>
