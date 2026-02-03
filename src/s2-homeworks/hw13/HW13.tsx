@@ -19,13 +19,15 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
+
 
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
                 ? 'https://xxxxxx.ccc' // имитация запроса на не корректный адрес
                 : 'https://samurai.it-incubator.io/api/3.0/homework/test'
-
+        setLoading(true)
         setCode('')
         setImage('')
         setText('')
@@ -35,14 +37,36 @@ const HW13 = () => {
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!')
+                setText(res.data.errorText)
+                setInfo('Успешный запрос')
                 setImage(success200)
                 // дописать
 
             })
             .catch((e) => {
                 // дописать
+                if (axios.isAxiosError(e)) {
+                    const status = e.response?.status
 
+                    if (status === 400) {
+                        setCode('Код 400')
+                        setText(e.response?.data.errorText)
+                        setImage(error400)
+                    } else if (status === 500) {
+                        setCode('Код 500')
+                        setText('Ошибка сервера')
+                        setImage(error500)
+                    } else {
+                        setCode('Error!')
+                        setText('Network error')
+                        setImage(errorUnknown)
+                    }
+                }
+                setInfo('Ошибка запроса')
             })
+            .finally(() => {
+            setLoading(false)
+        })
     }
 
     return (
@@ -56,7 +80,7 @@ const HW13 = () => {
                         onClick={send(true)}
                         xType={'secondary'}
                         // дописать
-
+                        disabled={loading}
                     >
                         Send true
                     </SuperButton>
