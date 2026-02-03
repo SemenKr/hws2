@@ -56,7 +56,7 @@ const HW13 = () => {
                         )
                     } else if (status === 500) {
                         setCode('Код 500')
-                        setText('Ошибка сервера')
+                        setText(e.response?.data.errorText)
                         setImage(error500)
                         setInfo(
                             'ошибка 500 - обычно означает что что-то сломалось на бэке!'
@@ -65,7 +65,7 @@ const HW13 = () => {
                         setCode('Ошибка')
                         setText('Network error')
                         setImage(errorUnknown)
-                        setInfo('ошибка сети')
+                        setInfo('Error')
                     }
                 }
             })
