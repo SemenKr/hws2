@@ -28,14 +28,10 @@ type ParamsType = {
 }
 
 const getTechs = (params: ParamsType) => {
-    return axios
-        .get<{ techs: TechType[], totalCount: number }>(
-            'https://samurai.it-incubator.io/api/3.0/homework/test3',
-            {params}
-        )
-        .catch((e) => {
-            alert(e.response?.data?.errorText || e.message)
-        })
+    return axios.get<{ techs: TechType[], totalCount: number }>(
+        'https://samurai.it-incubator.io/api/3.0/homework/test3',
+        { params }
+    )
 }
 
 const HW15 = () => {
@@ -52,16 +48,16 @@ const HW15 = () => {
 
         getTechs(params)
             .then((res) => {
-                if (res) {
-                    setTotalCount(res.data.totalCount)
-                    setTechs(res.data.techs)
-                }
+                setTotalCount(res.data.totalCount)
+                setTechs(res.data.techs)
+            })
+            .catch((e) => {
+                alert(e.response?.data?.errorText || e.message)
             })
             .finally(() => {
                 setLoading(false)
             })
     }
-
     const onChangePagination = (newPage: number, newCount: number) => {
         setPage(newPage)
         setCount(newCount)
