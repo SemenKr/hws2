@@ -62,9 +62,8 @@ const HW14 = () => {
     }
 
     useEffect(() => {
-        const params = Object.fromEntries(searchParams)
-        sendQuery(params.find || '')
-        setFind(params.find || '')
+        const findFromParams = searchParams.get('find') || ''
+        setFind(findFromParams)
     }, [searchParams])
 
     const mappedTechs = techs.map(t => (
