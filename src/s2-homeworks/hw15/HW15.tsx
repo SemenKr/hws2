@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react'
-import s2 from '../../s1-main/App.module.css'
-import s from './HW15.module.css'
 import axios from 'axios'
-import SuperPagination from './common/c9-SuperPagination/SuperPagination'
+import React, {useEffect, useState} from 'react'
 import {useSearchParams} from 'react-router-dom'
+import s2 from '../../s1-main/App.module.css'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import SuperPagination from './common/c9-SuperPagination/SuperPagination'
+import s from './HW15.module.css'
 
 /*
 * 1 - дописать SuperPagination
@@ -47,47 +47,74 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = (params: ParamsType) => {
         setLoading(true)
+
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res) {
+                    setTotalCount(res.data.totalCount)
+                    setTechs(res.data.techs)
+                }
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
+        setPage(newPage)
+        setCount(newCount)
 
-        // setPage(
-        // setCount(
+        const params = {
+            sort,
+            page: newPage,
+            count: newCount,
+        }
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery(params)
 
-        //
+        setSearchParams({
+            sort,
+            page: String(newPage),
+            count: String(newCount),
+        })
     }
-
     const onChangeSort = (newSort: string) => {
-        // делает студент
+        setSort(newSort)
+        setPage(1)
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        const params = {
+            sort: newSort,
+            page: 1,
+            count,
+        }
 
-        // sendQuery(
-        // setSearchParams(
+        sendQuery(params)
 
-        //
+        setSearchParams({
+            sort: newSort,
+            page: '1',
+            count: String(count),
+        })
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
+
+        const sortFromParams = params.sort || ''
+        const pageFromParams = +params.page || 1
+        const countFromParams = +params.count || 4
+
+        setSort(sortFromParams)
+        setPage(pageFromParams)
+        setCount(countFromParams)
+
+        sendQuery({
+            sort: sortFromParams,
+            page: pageFromParams,
+            count: countFromParams,
+        })
     }, [])
 
     const mappedTechs = techs.map(t => (
